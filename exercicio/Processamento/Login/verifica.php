@@ -11,11 +11,27 @@
 <?php
 
 class user {
-    public $emailLogin;
-    public $senhaLogin;
+    private $emailLogin;
+    private $senhaLogin;
+
+    public function setEmailLogin($email){
+        $this->emailLogin = $email;
+    }
+    public function getEmailLogin(){
+        return $this->emailLogin;
+    }
+
+    public function setSenhaLogin($senha){
+        $this->senhaLogin = $senha;
+    }
+    public function getSenhaLogin(){
+        return $this->senhaLogin;
+    }
 }
 
 $usuario = new user();
+$usuario->setEmailLogin($_POST['email']);
+$usuario->setSenhaLogin($_POST['senha']);
 
 $variavelErro = array(
     $erroEmail = '',    // Vazias, pois depois o código retorna erro dizendo que não foi definido.
@@ -30,34 +46,34 @@ function limpeza($valor){
 }
 
     // Verifica se POST foi REQUERIDO
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $usuario->emailLogin = $_POST['email'];
-        $usuario->senhaLogin = $_POST['senha'];
+    // if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if($_POST['email'] !== null && $_POST['senha'] !== null){
 
         // Verifica se POST_EMAIL está VAZIO
-        if(empty($usuario->emailLogin)){
+        if(empty($usuario->getEmailLogin())){
             $variavelErro[0] = "Por favor, insira um Email";
         }
         else{
-            // Passa POST para variável e faz FUNÇÃO de LIMPEZA
-            $usuario->emailLogin = limpeza($usuario -> emailLogin);
+            // Faz FUNÇÃO de LIMPEZA
+            limpeza($usuario->getEmailLogin());
 
             // Verificação de Email
-            if(!filter_var($usuario->emailLogin, FILTER_VALIDATE_EMAIL)){
+            if(!filter_var($usuario->getEmailLogin(), FILTER_VALIDATE_EMAIL)){
                 $variavelErro[0] = "Email inválido";
             }
-            elseif($usuario->emailLogin != $_SESSION['email']){
+            elseif($usuario->getEmailLogin() != $_SESSION['email']){
                 $variavelErro[0] = "Email inexistente!";
             }
         }
         
-        if(empty($usuario->senhaLogin)){
+        if(empty($usuario->getSenhaLogin())){
             $variavelErro[1] = "Por favor, insira uma senha";
         }
         else{
             // Foi posto condição de Email também, pq se o email estiver errado e a senha correta ele não 
-            // dá erro na senha e pode ser perigoso (Aqui estava sendo utilizado sessões)
-            if($usuario->senhaLogin != $_SESSION['senha'] || $variavelErro[0] != ""){ 
+            // dá erro na senha e pode ser perigoso, significando que alguém utiliza essa
+            // senha (Aqui estava sendo utilizado sessões)
+            if($usuario->getSenhaLogin() != $_SESSION['senha'] || $variavelErro[0] != ""){ 
                 $variavelErro[1] = "Senha incorreta!";
             }
         }

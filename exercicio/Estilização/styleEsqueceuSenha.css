@@ -17,7 +17,7 @@ body {
 }
 
 .conteiner {
-    display: flex;
+    display: flex;   
     align-content: center;
     justify-content: center;
 
@@ -26,7 +26,7 @@ body {
     margin-top: 50px;
 
     padding-top: 100px;
-    padding-bottom: 130px;
+    padding-bottom: 135px;
 
     /* border: 1px solid black; */
 
@@ -42,13 +42,13 @@ body {
     margin-top: -30px;
     padding-left: 40px;
     padding-right: 40px;
-    padding-bottom: 50px;
-    padding-top: 0px;
+    padding-top: 29px;
+    padding-bottom: 65px;
     border-radius: 10px;
 
-    display: flex;
-    justify-content: center;
-    flex-flow: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-flow: column; */
 
     width: 500px;
     height: 250px;
@@ -70,6 +70,8 @@ input {
     height: 40px;
     margin-bottom: -10px;
     border-radius: 10px;
+    /* margin-top: 10px; */
+    display: flex;
 
     border: 1px solid silver;
 }
@@ -84,7 +86,7 @@ form {
     height: 40px;
 
     margin-bottom: -40px;
-    margin-top: 40px;
+    margin-top: 10px;
 
     background-color: rgb(79, 79, 252);
     color: white;
@@ -94,12 +96,15 @@ form {
     font-size: 15px;
     font-weight: 600;
 
+    /* position: relative;
+    bottom: 1px; */
 
     align-self: flex-end;
 }
 
 .alterar:hover{
     background-color: rgb(76, 76, 206);
+    cursor: pointer;
 }
 
 .rodape{
@@ -118,6 +123,7 @@ form {
 
 .rodapeParagrafo:hover{
     color: rgb(99, 95, 95);
+    cursor: pointer;
 }
 
 .invalido{
@@ -132,14 +138,6 @@ form {
     color: red;
 }
 
-span.tudoCerto{
-    font-size: 15px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: relative;
-    top: 15px;
-    color: green;
-}
-
 @media (max-width: 500px) {
     .box {
         width: 400px;
@@ -148,8 +146,8 @@ span.tudoCerto{
         margin-top: -30px;
         padding-left: 40px;
         padding-right: 40px;
-        padding-bottom: 100px;
-        padding-top: 50px;
+        padding-bottom: 130px;
+        padding-top: 70px;
         border-radius: 10px;
 
         display: flex;

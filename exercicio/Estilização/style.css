@@ -91,6 +91,7 @@ span.erro{
 
 #botao:hover{
     background-color: rgb(69, 69, 248);
+    cursor: pointer;
 }
 
 .esqueceuASenha{
@@ -105,6 +106,7 @@ span.erro{
 
 .esqueceuASenha:hover{
     text-decoration: underline;
+    cursor: pointer;
 }
 
 hr{
@@ -130,6 +132,7 @@ hr{
 
 #criarNovaConta:hover{
     background-color: rgb(21, 167, 21);
+    cursor: pointer;
 }
 
 .rodape{
@@ -148,4 +151,5 @@ hr{
 
 .rodapeParagrafo:hover{
     color: rgb(99, 95, 95);
+    cursor: pointer;
 }

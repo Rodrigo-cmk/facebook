@@ -10,13 +10,36 @@
 <?php
 
 class user{
-    public $emailEntrada;
-    public $senhaEntrada;
+    private $emailEntrada;
+    private $senhaEntrada;
+    private $senhaEntrada2;
+
+    public function setEmailEntrada($email){
+        $this->emailEntrada = $email;
+    }
+    public function getEmailEntrada(){
+        return $this->emailEntrada;
+    }
+
+    public function setSenhaEntrada($senha){
+        $this->senhaEntrada = $senha;
+    }
+    public function getSenhaEntrada(){
+        return $this->senhaEntrada;
+    }
+
+    public function setSenhaEntrada2($senha2){
+        $this->senhaEntrada2 = $senha2;
+    }
+    public function getSenhaEntrada2(){
+        return $this->senhaEntrada2;
+    }
 }
 
 $usuario = new user();
-$usuario->emailEntrada = $_POST['emailRecuperar'];
-$usuario->senhaEntrada = $_POST['senhaRecuperar'];
+    $usuario->setEmailEntrada($_POST['emailRecuperar']);
+    $usuario->setSenhaEntrada($_POST['senhaRecuperar']);
+    $usuario->setSenhaEntrada2($_POST['confirmaSenha']);
 
 function limpeza($valor){
     $valor = trim($valor);
@@ -27,37 +50,56 @@ function limpeza($valor){
 $variavelErro = array(
     $email = "",
     $senha = "",
+    $senha2 = "",
 );
 
-// $redefinicao = "Senha Redefinida";
-
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        if(empty($usuario->emailEntrada)){
+        
+        if(empty($usuario->getEmailEntrada())){
             $variavelErro[0] = "Por favor, insira um email";
         }
-        else{
-            limpeza($usuario->emailEntrada);
-
-            if($usuario->emailEntrada != $_SESSION['email']){
-                $variavelErro[0] = "Email inexistente, você precisa conhecer o email para fazer a alteração!!";
-            }
+        elseif($usuario->getEmailEntrada() != $_SESSION['email']){
+            limpeza($usuario->getEmailEntrada());
+            
+            $variavelErro[0] = "Email inexistente, você precisa conhecer o email para fazer a alteração!!";
         }
 
-        if(empty($usuario->senhaEntrada)){
+        if(empty($usuario->getSenhaEntrada())){
             $variavelErro[1] = "Por favor insira uma senha!";
         }
-        else{
-            if(strlen($usuario->senhaEntrada) <= 7){
+        elseif(strlen($usuario->getSenhaEntrada()) <= 7){
                 $variavelErro[1] = "A senha deve conter pelo menos 8 caracteres!";
-            }
-            elseif($variavelErro[0] == "" && $variavelErro[1] == ""){
-                    $_SESSION['senha'] = $usuario->senhaEntrada;
-                    // $redefinicao = "Senha redefinida!";
-    
-                    sleep(3);
-    
-                    header('location: /exercicio/processamento/login/index.php');
+        }
+        else{
+            // Se tiver especiais, ele retornará true e está tudo certo, senão, 
+            // ele retorna false e dá erro
+            function pesquisa($valor){
+                if( (preg_match('/@/', $valor)) || (preg_match('/#/', $valor)) ){
+                    return true;
+                }
+                else{
+                    return false;
                 }
             }
+
+            // Utilizei função própria para usar operador OR
+            // Se ele retornar um FALSE da minha função, dará erro
+            if(!pesquisa($usuario->getSenhaEntrada())){
+                $variavelErro[1] = "Insira também '@' ou '#'.";
+            }
         }
+
+        if(empty($usuario->getSenhaEntrada2())){
+            $variavelErro[2] = "Por  favor faça a confirmação da senha!";
+        }
+        elseif($usuario->getSenhaEntrada2() !== $usuario->getSenhaEntrada()){
+            $variavelErro[2] = "As senhas não coincidem!";
+        }
+
+        if($variavelErro[0] == "" && $variavelErro[1] == "" && $variavelErro[2] == ""){
+            $_SESSION['senha'] = $usuario->getSenhaEntrada();
+
+            header('location: /exercicio/processamento/login/index.php');
+        }
+    }
 ?>

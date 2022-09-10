@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +15,7 @@
 
 <body>
     <h1>
-        Login feito
-
+        <span> Login feito, </span> <?php echo $_SESSION['nome']; ?>
 
         <a href="/exercicio/Processamento/Login/index.php">
             <p type="submit">
