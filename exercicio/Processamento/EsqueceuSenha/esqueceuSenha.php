@@ -20,11 +20,11 @@
     // header('Cache-Control: no cache');
     // session_cache_limiter('private_no_expire');
 
-    // ini_set('display_errors', 0);
-    // error_reporting(0);
+    ini_set('display_errors', 0);
+    error_reporting(0);
 
     // session_start();
-    ?>
+    ?> 
 
     <span class="logo">
         facebook
@@ -42,16 +42,23 @@
             <form method="post" target="_self">
 
                 <input type="email" name="emailRecuperar" id="emailRecuperar" autofocus placeholder="Email"
-                value="<?php if(isset($_POST['emailRecuperar'])){echo $_POST['emailRecuperar'];} ?>"
+                value="<?php if($usuario->getEmailEntrada() !== null){echo $usuario->getEmailEntrada();} ?>"
                 class="<?php if($variavelErro[0] !== ""){echo "invalido";} ?>">
-                <span class="erro"> <?php if($variavelErro[0] !== ""){echo $variavelErro[0];} ?> </span>
+                <span class="erro"> <?php echo $variavelErro[0]; ?> </span>
 
                 <br>
 
                 <input type="password" name="senhaRecuperar" id="senhaRecuperar" placeholder="Nova Senha"
+                value="<?php if($usuario->getSenhaEntrada() !== null){ echo $usuario->getSenhaEntrada();} ?>"
                 class="<?php if($variavelErro[1] !== ""){ echo "invalido";} ?>">
-                <span class="erro"> <?php if($variavelErro[1] !== ""){echo $variavelErro[1];} ?> </span>
-                <!-- <span class="tudoCerto"> <?php //if($variavelErro[1] == ""){echo $redefinicao;} ?> </span> -->
+                <span class="erro"> <?php echo $variavelErro[1]; ?> </span>
+
+                <br>    
+
+                <input type="password" name="confirmaSenha" id="confirmaSenha" placeholder="Repita a Senha"
+                value="<?php if($usuario->getSenhaEntrada2() !== null){ echo $usuario->getSenhaEntrada2();} ?>"
+                class="<?php if($variavelErro[2] != null){echo 'invalido';}?>">
+                <span class="erro"> <?php echo $variavelErro[2]; ?> </span>
 
                 <hr>
 

@@ -1,4 +1,5 @@
 <?php
+    // Incluindo página de processamento de informações
     include "verificacao.php";
 ?>
 
@@ -22,10 +23,9 @@
     ?>
 
     <?php
-        header('Cache-Control: no cache');
-        session_cache_limiter('private_no_expire');
-
-        session_start();
+        // header('Cache-Control: no cache');
+        // session_cache_limiter('private_no_expire');
+        // session_start();
     ?>
 
     <div class="conteiner">
@@ -41,31 +41,35 @@
 
             <hr> 
 
-            <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
+            <form method="post">
+
+            <!-- Não é possivel utilizar ISSET
+            então foi usado outro método
+            para verificar se tem valor -->
 
                 <input type="text" name="insereNome" id="insereNome" placeholder="Insira seu Nome" autofocus
-                value="<?php if(isset($_POST['insereNome'])){echo $_POST['insereNome'];}?>"
-                class="<?php if($variaveisErros[1] == true){echo "invalido";}?>">
-                <br> <span class="erro"> <?php echo $variaveisErros[1]; ?> </span>
+                value="<?php if(null !== $usuario->getNomeEntrada()){echo $usuario->getNomeEntrada();}?>"   
+                class="<?php if($variaveisErros[1] == true){echo "invalido";}?>">                   
+                <br> <span class="erro"> <?php echo $variaveisErros[1]; ?> </span>                 
         
                 <br>
                 
                 <input type="email" name="insereEmail" id="insereEmail" placeholder="Insira um Email"
-                value="<?php if(isset($_POST['insereEmail'])){echo $_POST['insereEmail'];}?>"
+                value="<?php if(null !== $usuario->getEmailEntrada()){echo $usuario->getEmailEntrada();}?>"
                 class="<?php if($variaveisErros[0] == true){echo "invalido";}?>">
                 <br> <span class="erro"> <?php echo $variaveisErros[0]; ?> </span>
         
                 <br>
         
                 <input type="password" name="insereSenha" id="insereSenha" placeholder="Insira uma Senha"
-                value="<?php if(isset($_POST['insereSenha'])){echo $_POST['insereSenha'];}?>"
+                value="<?php if(null !== $usuario->getSenhaEntrada()){echo $usuario->getSenhaEntrada();}?>"
                 class="<?php if($variaveisErros[2] == true){echo "invalido";}?>">
                 <br> <span class="erro"> <?php echo $variaveisErros[2]; ?> </span>
                 
                 <br>
         
                 <input type="password" name="confirmaSenha" id="confirmaSenha" placeholder="Confirme sua senha"
-                value="<?php if(isset($_POST['confirmaSenha'])){echo $_POST['confirmaSenha'];}?>"
+                value="<?php if(null !== $usuario->getSenhaEntrada2()){echo $usuario->getSenhaEntrada2();}?>"
                 class="<?php if($variaveisErros[3] == true){echo "invalido";}?>">
                 <br> <span class="erro"> <?php echo $variaveisErros[3]; ?> </span> 
 

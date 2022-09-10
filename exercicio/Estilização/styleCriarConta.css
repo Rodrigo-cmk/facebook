@@ -4,12 +4,8 @@ body{
 }
 
 .conteiner{
-    /* margin: 200px; */
-    /* margin-top: 40px; */
     margin-left: 480px;
     margin-right: 480px;
-
-    /* padding-top: 100px; */
 
     display: flex;
     justify-content: center;
@@ -58,6 +54,7 @@ form{
 
 #botaoCadastrese:hover{
     background-color: rgb(5, 143, 5);
+    cursor: pointer;
 }
 
 .titulo{
@@ -100,6 +97,13 @@ input{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: -25px;
 }
+
+/* #certo{
+    color: green;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: -25px;
+} */
 
 @media (max-width: 850px){
     .conteiner{
