@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule inicio /facebook/processamento/login/index.php
+RewriteRule cadastro /facebook/processamento/criaConta/criarConta.php
+RewriteRule sessao /facebook/processamento/login/pagina/perfil.php
+RewriteRule recuperacao /facebook/processamento/esqueceusenha/esqueceusenha.php 
