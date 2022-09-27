@@ -1,0 +1,25 @@
+@media(max-width: 500px){
+    .inputModalCadastro{
+        width: 210px;
+    }
+
+    .boxModalCadastro {
+        margin-left: 476px;
+    }
+
+    .fechaModalCadastro {
+        left: 195px;
+    }
+
+    #botaoCadastreseModal {
+        width: 210px;
+    }
+
+    .abrirModalCadastro {
+        width: 149px;
+        height: 35px;
+        padding-top: 7px;
+        font-size: 24px;
+        margin-top: 6px;
+    }
+}

@@ -1,9 +1,5 @@
-/* ---------------------------------------------------------------------------------------------------------- */
-/* Media Query */
-
 @media(max-width: 800px) {
     .conteiner{
-        /* margin: 10px;    */
         background-color: rgb(233, 232, 232);
         padding: 0%;
         padding-bottom: 170px;
@@ -30,25 +26,14 @@
 
     input{
         width: 200px;
-        height: 30px;
-
-        margin-left: 20px;
+        height: 40px;
     }
 
     #botao{
-        width: 200px;
+        width: 205px;
         height: 40px;
-        margin-left: 20px;
         
         font-size: 20px;
-    }
-
-    #criarNovaConta{
-        height: 45px;
-        width: 190px;
-        margin-left: 20px;
-    
-        font-size: 17px;
     }
 
     .erro{
@@ -58,29 +43,29 @@
 
 @media(max-width: 500px) {
     .conteiner{
-        /* margin: 10px;    */
         background-color: rgb(233, 232, 232);
         padding: 0%;
-        padding-bottom: 100%;
-        display: flex;
-    
-        /* border: 1px solid black; */
-    
+        padding-bottom: 10%;
+        display: flex;    
     }
 
     .logo {
-        font-size: 25px;
+        font-size: 30px;
         padding-bottom: 20px;
+        padding-left: 20px;
     }
 
     .texto {
-        font-size: 14px;
+        font-size: 17px;
+        width: 222px;
+
+        padding-left: 20px;
     }
 
     .caixaLogin{
         padding: 6%;
-        margin-left: -950px;
-        margin-right: 80px;
+        margin-left: -842px;
+        margin-right: 0px;
         margin-top: 190px;
     }
 
@@ -94,28 +79,22 @@
 
     input{
         width: 200px;
-        height: 30px;
-
-        margin-left: 20px;
+        height: 40px;
     }
 
     #botao{
         width: 200px;
-        height: 40px;
-        margin-left: 20px;
+        height: 36px;
+        padding-top: 5px;
         
         font-size: 20px;
     }
 
-    #criarNovaConta{
-        height: 45px;
-        width: 190px;
-        margin-left: 20px;
-    
-        font-size: 17px;
-    }
-
     .erro{
         right: -20px;
+    }
+
+    .formLogin{
+        max-width: 220px;
     }
 }

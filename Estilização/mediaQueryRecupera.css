@@ -1,0 +1,23 @@
+@media (max-width: 500px) {
+    .inputModalRecupera {
+        width: 276px;
+        height: 34px;
+    }
+
+    .fechaRecupera {
+        position: relative;
+        left: 256px;
+        top: 14px;
+    }   
+}
+
+@media (max-width: 300px) {
+    .inputModalRecupera {
+        width: 215px;
+    }
+    .fechaRecupera {
+        position: relative;
+        left: 199px;
+        top: -3px;
+    }   
+}

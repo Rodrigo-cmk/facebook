@@ -43,6 +43,8 @@ body{
     border-radius: 10px;
     margin-left: -380px;
     margin-top: 100px;
+    display: flex;
+    flex-flow: column;
 
     background-color: white;
     padding: 4%;
@@ -75,7 +77,7 @@ span.erro{
     width: 360px;
     height: 40px;
 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border-radius: 10px;
     padding-bottom: 7px;
 
@@ -94,16 +96,6 @@ span.erro{
     cursor: pointer;
 }
 
-.esqueceuASenha{
-    text-decoration: none;
-    align-items: center;   
-    text-align: center;
-    justify-content: center;
-    margin-top: -5px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(79, 79, 252);
-}
-
 .esqueceuASenha:hover{
     text-decoration: underline;
     cursor: pointer;
@@ -111,28 +103,6 @@ span.erro{
 
 hr{
     color: rgb(255, 255, 255);
-}
-
-#criarNovaConta{
-    background-color: rgb(9, 175, 9);
-    height: 50px;
-    width: 190px;
-    /* margin-right: 500%; */
-    margin-left: 90px;
-    padding-bottom: 7px;
-    border: 1px solid rgb(9, 175, 9); 
-    margin-top: 15px;
-    border-radius: 10px;
-
-    font-size: 20px;
-    color: white;
-    font-weight: 700;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-#criarNovaConta:hover{
-    background-color: rgb(21, 167, 21);
-    cursor: pointer;
 }
 
 .rodape{
